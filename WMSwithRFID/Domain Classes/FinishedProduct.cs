@@ -11,6 +11,7 @@ namespace WMSwithRFID.Domain_Classes
         public DateTime DateManufactured { get; set; }
         public Status Status { get; set; }
         public string EPC { get; set; }
+        public AntennaObject AntennaObject { get; set; }
         //public ProductionLine ProductionLineNo { get; set; }
 
     }

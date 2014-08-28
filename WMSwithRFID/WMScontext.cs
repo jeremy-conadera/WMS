@@ -24,8 +24,10 @@ namespace WMSwithRFID
         public DbSet<User> Users { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
-        public DbSet<ProductionLine> ProductionLines { get; set; }
         public DbSet<FinishedProduct> FinishedProducts { get; set; }
+        public DbSet<AntennaObject> Antennas { get; set; }
+        public DbSet<ReaderObject> Readers { get; set; }
+               
     }
 }
 

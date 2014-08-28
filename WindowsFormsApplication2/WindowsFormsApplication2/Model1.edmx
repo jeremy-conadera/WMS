@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WMSwithRFID.WMScontextModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WMSwithRFIDWMScontextModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="WMSwithRFID.WMScontextModel.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AntennaObjects" EntityType="WMSwithRFID.WMScontextModel.Store.AntennaObjects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FinishedProducts" EntityType="WMSwithRFID.WMScontextModel.Store.FinishedProducts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Manufacturers" EntityType="WMSwithRFID.WMScontextModel.Store.Manufacturers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="WMSwithRFID.WMScontextModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductTypes" EntityType="WMSwithRFID.WMScontextModel.Store.ProductTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReaderObjects" EntityType="WMSwithRFID.WMScontextModel.Store.ReaderObjects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="WMSwithRFID.WMScontextModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Warehouses" EntityType="WMSwithRFID.WMScontextModel.Store.Warehouses" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_dbo_AntennaObjects_dbo_Products_Product_ID" Association="WMSwithRFID.WMScontextModel.Store.FK_dbo_AntennaObjects_dbo_Products_Product_ID">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="AntennaObjects" EntitySet="AntennaObjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID" Association="WMSwithRFID.WMScontextModel.Store.FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID">
+            <End Role="AntennaObjects" EntitySet="AntennaObjects" />
+            <End Role="FinishedProducts" EntitySet="FinishedProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Products_dbo_ProductTypes_Type_ID" Association="WMSwithRFID.WMScontextModel.Store.FK_dbo_Products_dbo_ProductTypes_Type_ID">
+            <End Role="ProductTypes" EntitySet="ProductTypes" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID" Association="WMSwithRFID.WMScontextModel.Store.FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID">
+            <End Role="AntennaObjects" EntitySet="AntennaObjects" />
+            <End Role="ReaderObjects" EntitySet="ReaderObjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID" Association="WMSwithRFID.WMScontextModel.Store.FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="ReaderObjects" EntitySet="ReaderObjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID" Association="WMSwithRFID.WMScontextModel.Store.FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID">
+            <End Role="Warehouses" EntitySet="Warehouses" />
+            <End Role="ReaderObjects" EntitySet="ReaderObjects" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="AntennaObjects">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Function" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="AntennaPortNumber" Type="int" Nullable="false" />
+          <Property Name="Product_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="FinishedProducts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DateManufactured" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="EPC" Type="nvarchar(max)" />
+          <Property Name="AntennaObject_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Manufacturers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Weight" Type="int" Nullable="false" />
+          <Property Name="DaysToExpire" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="float" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Type_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReaderObjects">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COMPort" Type="nvarchar(max)" />
+          <Property Name="Antenna_ID" Type="int" />
+          <Property Name="Manufacturer_ID" Type="int" />
+          <Property Name="Warehouse_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="AccountType" Type="int" Nullable="false" />
+          <Property Name="CompanyPosition" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Suffix" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="ContactNumber" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Warehouses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_AntennaObjects_dbo_Products_Product_ID">
+          <End Role="Products" Type="WMSwithRFID.WMScontextModel.Store.Products" Multiplicity="0..1" />
+          <End Role="AntennaObjects" Type="WMSwithRFID.WMScontextModel.Store.AntennaObjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AntennaObjects">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID">
+          <End Role="AntennaObjects" Type="WMSwithRFID.WMScontextModel.Store.AntennaObjects" Multiplicity="0..1" />
+          <End Role="FinishedProducts" Type="WMSwithRFID.WMScontextModel.Store.FinishedProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AntennaObjects">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FinishedProducts">
+              <PropertyRef Name="AntennaObject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Products_dbo_ProductTypes_Type_ID">
+          <End Role="ProductTypes" Type="WMSwithRFID.WMScontextModel.Store.ProductTypes" Multiplicity="0..1" />
+          <End Role="Products" Type="WMSwithRFID.WMScontextModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID">
+          <End Role="AntennaObjects" Type="WMSwithRFID.WMScontextModel.Store.AntennaObjects" Multiplicity="0..1" />
+          <End Role="ReaderObjects" Type="WMSwithRFID.WMScontextModel.Store.ReaderObjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AntennaObjects">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReaderObjects">
+              <PropertyRef Name="Antenna_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID">
+          <End Role="Manufacturers" Type="WMSwithRFID.WMScontextModel.Store.Manufacturers" Multiplicity="0..1" />
+          <End Role="ReaderObjects" Type="WMSwithRFID.WMScontextModel.Store.ReaderObjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReaderObjects">
+              <PropertyRef Name="Manufacturer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID">
+          <End Role="Warehouses" Type="WMSwithRFID.WMScontextModel.Store.Warehouses" Multiplicity="0..1" />
+          <End Role="ReaderObjects" Type="WMSwithRFID.WMScontextModel.Store.ReaderObjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReaderObjects">
+              <PropertyRef Name="Warehouse_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WMSwithRFID.WMScontextModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="WMSwithRFID.WMScontextModel.C__MigrationHistory" />
+          <EntitySet Name="AntennaObjects" EntityType="WMSwithRFID.WMScontextModel.AntennaObject" />
+          <EntitySet Name="FinishedProducts" EntityType="WMSwithRFID.WMScontextModel.FinishedProduct" />
+          <EntitySet Name="Manufacturers" EntityType="WMSwithRFID.WMScontextModel.Manufacturer" />
+          <EntitySet Name="Products" EntityType="WMSwithRFID.WMScontextModel.Product" />
+          <EntitySet Name="ProductTypes" EntityType="WMSwithRFID.WMScontextModel.ProductType" />
+          <EntitySet Name="ReaderObjects" EntityType="WMSwithRFID.WMScontextModel.ReaderObject" />
+          <EntitySet Name="Users" EntityType="WMSwithRFID.WMScontextModel.User" />
+          <EntitySet Name="Warehouses" EntityType="WMSwithRFID.WMScontextModel.Warehouse" />
+          <AssociationSet Name="FK_dbo_AntennaObjects_dbo_Products_Product_ID" Association="WMSwithRFID.WMScontextModel.FK_dbo_AntennaObjects_dbo_Products_Product_ID">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="AntennaObjects" EntitySet="AntennaObjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID" Association="WMSwithRFID.WMScontextModel.FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID">
+            <End Role="AntennaObjects" EntitySet="AntennaObjects" />
+            <End Role="FinishedProducts" EntitySet="FinishedProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID" Association="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID">
+            <End Role="AntennaObjects" EntitySet="AntennaObjects" />
+            <End Role="ReaderObjects" EntitySet="ReaderObjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID" Association="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="ReaderObjects" EntitySet="ReaderObjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Products_dbo_ProductTypes_Type_ID" Association="WMSwithRFID.WMScontextModel.FK_dbo_Products_dbo_ProductTypes_Type_ID">
+            <End Role="ProductTypes" EntitySet="ProductTypes" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID" Association="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID">
+            <End Role="Warehouses" EntitySet="Warehouses" />
+            <End Role="ReaderObjects" EntitySet="ReaderObjects" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="AntennaObject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Function" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+          <Property Name="AntennaPortNumber" Type="Int32" Nullable="false" />
+          <Property Name="Product_ID" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_AntennaObjects_dbo_Products_Product_ID" FromRole="AntennaObjects" ToRole="Products" />
+          <NavigationProperty Name="FinishedProducts" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID" FromRole="AntennaObjects" ToRole="FinishedProducts" />
+          <NavigationProperty Name="ReaderObjects" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID" FromRole="AntennaObjects" ToRole="ReaderObjects" />
+        </EntityType>
+        <EntityType Name="FinishedProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateManufactured" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="EPC" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AntennaObject_ID" Type="Int32" />
+          <NavigationProperty Name="AntennaObject" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID" FromRole="FinishedProducts" ToRole="AntennaObjects" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ReaderObjects" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID" FromRole="Manufacturers" ToRole="ReaderObjects" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Weight" Type="Int32" Nullable="false" />
+          <Property Name="DaysToExpire" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Double" Nullable="false" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+          <Property Name="Type_ID" Type="Int32" />
+          <NavigationProperty Name="AntennaObjects" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_AntennaObjects_dbo_Products_Product_ID" FromRole="Products" ToRole="AntennaObjects" />
+          <NavigationProperty Name="ProductType" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_Products_dbo_ProductTypes_Type_ID" FromRole="Products" ToRole="ProductTypes" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_Products_dbo_ProductTypes_Type_ID" FromRole="ProductTypes" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ReaderObject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMPort" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Antenna_ID" Type="Int32" />
+          <Property Name="Manufacturer_ID" Type="Int32" />
+          <Property Name="Warehouse_ID" Type="Int32" />
+          <NavigationProperty Name="AntennaObject" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID" FromRole="ReaderObjects" ToRole="AntennaObjects" />
+          <NavigationProperty Name="Manufacturer" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID" FromRole="ReaderObjects" ToRole="Manufacturers" />
+          <NavigationProperty Name="Warehouse" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID" FromRole="ReaderObjects" ToRole="Warehouses" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AccountType" Type="Int32" Nullable="false" />
+          <Property Name="CompanyPosition" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Suffix" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ReaderObjects" Relationship="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID" FromRole="Warehouses" ToRole="ReaderObjects" />
+        </EntityType>
+        <Association Name="FK_dbo_AntennaObjects_dbo_Products_Product_ID">
+          <End Role="Products" Type="WMSwithRFID.WMScontextModel.Product" Multiplicity="0..1" />
+          <End Role="AntennaObjects" Type="WMSwithRFID.WMScontextModel.AntennaObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AntennaObjects">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID">
+          <End Role="AntennaObjects" Type="WMSwithRFID.WMScontextModel.AntennaObject" Multiplicity="0..1" />
+          <End Role="FinishedProducts" Type="WMSwithRFID.WMScontextModel.FinishedProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AntennaObjects">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FinishedProducts">
+              <PropertyRef Name="AntennaObject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID">
+          <End Role="AntennaObjects" Type="WMSwithRFID.WMScontextModel.AntennaObject" Multiplicity="0..1" />
+          <End Role="ReaderObjects" Type="WMSwithRFID.WMScontextModel.ReaderObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AntennaObjects">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReaderObjects">
+              <PropertyRef Name="Antenna_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID">
+          <End Role="Manufacturers" Type="WMSwithRFID.WMScontextModel.Manufacturer" Multiplicity="0..1" />
+          <End Role="ReaderObjects" Type="WMSwithRFID.WMScontextModel.ReaderObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReaderObjects">
+              <PropertyRef Name="Manufacturer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Products_dbo_ProductTypes_Type_ID">
+          <End Role="ProductTypes" Type="WMSwithRFID.WMScontextModel.ProductType" Multiplicity="0..1" />
+          <End Role="Products" Type="WMSwithRFID.WMScontextModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID">
+          <End Role="Warehouses" Type="WMSwithRFID.WMScontextModel.Warehouse" Multiplicity="0..1" />
+          <End Role="ReaderObjects" Type="WMSwithRFID.WMScontextModel.ReaderObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReaderObjects">
+              <PropertyRef Name="Warehouse_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WMSwithRFIDWMScontextModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AntennaObjects">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.AntennaObject">
+              <MappingFragment StoreEntitySet="AntennaObjects">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Function" ColumnName="Function" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="AntennaPortNumber" ColumnName="AntennaPortNumber" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinishedProducts">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.FinishedProduct">
+              <MappingFragment StoreEntitySet="FinishedProducts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateManufactured" ColumnName="DateManufactured" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EPC" ColumnName="EPC" />
+                <ScalarProperty Name="AntennaObject_ID" ColumnName="AntennaObject_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="DaysToExpire" ColumnName="DaysToExpire" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductTypes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReaderObjects">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.ReaderObject">
+              <MappingFragment StoreEntitySet="ReaderObjects">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COMPort" ColumnName="COMPort" />
+                <ScalarProperty Name="Antenna_ID" ColumnName="Antenna_ID" />
+                <ScalarProperty Name="Manufacturer_ID" ColumnName="Manufacturer_ID" />
+                <ScalarProperty Name="Warehouse_ID" ColumnName="Warehouse_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="CompanyPosition" ColumnName="CompanyPosition" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="WMSwithRFID.WMScontextModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="7.125" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.AntennaObject" Width="1.5" PointX="5.25" PointY="3.75" Height="2.2496956380208335" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.FinishedProduct" Width="1.5" PointX="7.5" PointY="3.875" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.Manufacturer" Width="1.5" PointX="5.25" PointY="1.25" Height="1.5923063151041657" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.Product" Width="1.5" PointX="3" PointY="3.625" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.ProductType" Width="1.5" PointX="0.75" PointY="4.125" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.ReaderObject" Width="1.5" PointX="7.5" PointY="0.75" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.User" Width="1.5" PointX="7.75" PointY="7.125" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSwithRFID.WMScontextModel.Warehouse" Width="1.5" PointX="5.25" PointY="7.5" Height="1.5923063151041674" IsExpanded="true" />
+        <AssociationConnector Association="WMSwithRFID.WMScontextModel.FK_dbo_AntennaObjects_dbo_Products_Product_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.8748478190104167" />
+          <ConnectorPoint PointX="5.25" PointY="4.8748478190104167" />
+        </AssociationConnector>
+        <AssociationConnector Association="WMSwithRFID.WMScontextModel.FK_dbo_FinishedProducts_dbo_AntennaObjects_AntennaObject_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="4.83550048828125" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="4.8355004882812489" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="4.83550048828125" />
+          <ConnectorPoint PointX="7.5" PointY="4.83550048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_AntennaObjects_Antenna_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="3.75" />
+          <ConnectorPoint PointX="7.125" PointY="3.375" />
+          <ConnectorPoint PointX="7.125" PointY="1.8748478190104159" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="1.8748478190104152" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="1.8748478190104159" />
+          <ConnectorPoint PointX="7.5" PointY="1.8748478190104159" />
+        </AssociationConnector>
+        <AssociationConnector Association="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Manufacturers_Manufacturer_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="2.4210770670572908" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="2.4210770670572903" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="2.4210770670572908" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="2.4210770670572903" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="2.4210770670572908" />
+          <ConnectorPoint PointX="7.5" PointY="2.4210770670572908" />
+        </AssociationConnector>
+        <AssociationConnector Association="WMSwithRFID.WMScontextModel.FK_dbo_Products_dbo_ProductTypes_Type_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.8389794921875" />
+          <ConnectorPoint PointX="3" PointY="4.8389794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="WMSwithRFID.WMScontextModel.FK_dbo_ReaderObjects_dbo_Warehouses_Warehouse_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.5623066923076925" />
+          <ConnectorPoint PointX="7.3125" PointY="6.9998066923076934" />
+          <ConnectorPoint PointX="7.3125" PointY="1.2811719095052072" />
+          <ConnectorPoint PointX="7.5" PointY="1.2811719095052072" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

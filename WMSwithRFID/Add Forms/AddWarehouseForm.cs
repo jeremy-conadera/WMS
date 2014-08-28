@@ -27,7 +27,7 @@ namespace WMSwithRFID.Add_Forms
             };
 
             context.Warehouses.Add(warehouse);
-            context.SaveChanges();
+            context.SaveChanges();            
         }
     }
 }

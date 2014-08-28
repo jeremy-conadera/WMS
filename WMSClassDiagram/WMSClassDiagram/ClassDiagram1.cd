@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<classDiagram MajorVersion="1" MinorVersion="1">
+  <class Name="WMSclassDiagram.Form1" Collapsed="true">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.Program" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.Properties.Resources" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.Properties.Settings" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.Manufacturer" Collapsed="true">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQBAAAACAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Manufacturer.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.Warehouse">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAQBAAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Warehouse.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.AntennaPort">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAgAAAAAAgAAAAAAAAAAAAAAKAAEABAAAAA=</HashCode>
+      <FileName>AntennaPort.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Purpose" />
+    </ShowAsAssociation>
+  </class>
+  <class Name="WMSclassDiagram.Product">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MQAAAgAQAAAAAAEAAAAAAAAAACAAAAAAAAAEAAAIAAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.ProductType" Collapsed="true">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ProductType.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.WMScontext" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAABAAAAAAQAAw=</HashCode>
+      <FileName>WMScontext.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.Migrations.Configuration" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.AntennaProduct">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAgAgCAAAAAAAAAABAAAAAAAAAAAAEAAAAAAQ=</HashCode>
+      <FileName>AntennaProduct.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <class Name="WMSclassDiagram.FinishedProduct" Collapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAACAAAAAAAAAAACAAABAAAAAAAACAAAAAg=</HashCode>
+      <FileName>FinishedProduct.cs</FileName>
+    </TypeIdentifier>
+  </class>
+  <Enum Name="WMSclassDiagram.Purpose">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Purpose.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WMSclassDiagram.Status" Collapsed="true">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAABAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</classDiagram>

@@ -1,0 +1,4 @@
+c:\users\ponpon\documents\visual studio 2010\Projects\WMSClassDiagram\WMSClassDiagram\obj\x86\Debug\WMS.csprojResolveAssemblyReference.cache
+c:\users\ponpon\documents\visual studio 2010\Projects\WMSClassDiagram\WMSClassDiagram\obj\x86\Debug\WMSClassDiagram.Properties.Resources.resources
+c:\users\ponpon\documents\visual studio 2010\Projects\WMSClassDiagram\WMSClassDiagram\obj\x86\Debug\WMS.csproj.GenerateResource.Cache
+c:\users\ponpon\documents\visual studio 2010\Projects\WMSClassDiagram\WMSClassDiagram\bin\Debug\WMSClassDiagram.exe.config

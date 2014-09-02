@@ -37,3 +37,4 @@ C:\Users\PonPon\Desktop\WMS\WMS\obj\x86\Debug\WMS.csproj.GenerateResource.Cache
 C:\Users\PonPon\Documents\Visual Studio 2010\Projects\WMS\WMS\obj\x86\Debug\WMS.configureAntennaPortsForm.resources
 C:\Users\PonPon\Documents\Visual Studio 2010\Projects\WMS\WMS\obj\x86\Debug\WMS.Forms.AddProductTypeForm.resources
 C:\Users\PonPon\Documents\Visual Studio 2010\Projects\WMS\WMS\obj\x86\Debug\WMS.Forms.AddProductForm.resources
+C:\Users\PonPon\Documents\Visual Studio 2010\Projects\WMS\WMS\obj\x86\Debug\WMS.Forms.AddWarehouseForm.resources

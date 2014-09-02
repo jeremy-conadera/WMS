@@ -22,6 +22,11 @@ namespace WMS
         public virtual ICollection<AntennaProduct> AntennaProducts { get; set; }
         public virtual ICollection<TransactionProducts> TransactionProducts { get; set; }
 
-        
+        public List<Product> GetAllProductQuery()
+        {
+            WMScontext ctx = new WMScontext();
+            return (from products in ctx.Products
+                    select products).ToList();
+        }
     }
 }

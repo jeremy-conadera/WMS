@@ -16,11 +16,11 @@ namespace WMS
 
         public virtual ICollection<Product> Products { get; set; }
 
-        public List<ProductType> GetAllProductTypeQuery()
+        public List<ProductType> GetAllProductQuery()
         {
             WMScontext ctx = new WMScontext();
             return (from productTypes in ctx.ProductTypes
-                          select productTypes).ToList();            
+                          select productTypes).ToList();
         }
     }
 }

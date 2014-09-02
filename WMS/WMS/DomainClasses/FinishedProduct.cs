@@ -32,7 +32,7 @@ namespace WMS
                               where days.AntennaProducts == this.AntennaProduct
                               select days.DaysToExpire).SingleOrDefault();
                 int daysToExpire = result;
-                return DateManufactured;
+                return DateManufactured.AddDays(daysToExpire);
             }
         }
     }

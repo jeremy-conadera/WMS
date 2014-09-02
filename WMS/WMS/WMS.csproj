@@ -69,6 +69,12 @@
     <Compile Include="Forms\AddProductTypeForm.Designer.cs">
       <DependentUpon>AddProductTypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddWarehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddWarehouseForm.Designer.cs">
+      <DependentUpon>AddWarehouseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ConfigurePortsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProductTypeForm.resx">
       <DependentUpon>AddProductTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddWarehouseForm.resx">
+      <DependentUpon>AddWarehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConfigurePortsForm.resx">
       <DependentUpon>ConfigurePortsForm.cs</DependentUpon>

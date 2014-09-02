@@ -13,10 +13,10 @@ namespace WMS
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            Application.EnableVisualStyles();
+        {            
+            Application.EnableVisualStyles();            
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddProductTypeForm());
+            Application.Run(new configureAntennaPortsForm());
         }
     }
 }

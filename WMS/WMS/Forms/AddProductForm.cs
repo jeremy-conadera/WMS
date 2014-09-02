@@ -38,10 +38,10 @@ namespace WMS.Forms
 
         private void LoadProductTypeCB()
         {
-            ProductType productType = new ProductType();
-            typeCB.DataSource = productType.GetAllProductTypeQuery();
-            typeCB.DisplayMember = "ProductTypeName";
-            typeCB.ValueMember = "ProductTypeID";
+            Product product = new Product();
+            typeCB.DataSource = product.GetAllProductQuery();
+            typeCB.DisplayMember = "ProductName";
+            typeCB.ValueMember = "ProductID";
         }
     }
 }
